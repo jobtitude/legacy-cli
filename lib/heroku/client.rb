@@ -37,15 +37,9 @@ class Heroku::Client
   end
 
   def self.deprecate
-    method = caller.first.split('`').last[0...-1]
-    source = caller[1].split(' ').first[0...-3]
-    $stderr.puts(" !    DEPRECATED: Heroku::Client##{method} is deprecated, please use the heroku-api gem.")
-    $stderr.puts(" !    DEPRECATED: More information available at https://github.com/heroku/heroku.rb")
-    $stderr.puts(" !    DEPRECATED: Deprecated method called from #{source}.")
   end
 
   def deprecate
-    self.class.deprecate
   end
 
   def self.auth(user, password, host=Heroku::Auth.host)
